@@ -28,3 +28,8 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Report metrics to Prometheus
+        run: echo "Build metrics from GitHub Actions" > metrics.txt
+          echo "github_actions_build_status{repository='${{ github.repository }}', ref='${{ github.ref }}'} 1" >> metrics.txt
+          curl --data-binary @metrics.txt http://localhost:9091/metrics # Указываем на HTTP-эндпоинт, который будет собирать метрики
