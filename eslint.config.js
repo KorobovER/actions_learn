@@ -1,24 +1,22 @@
-/** @type {import("eslint").Linter.Config} */
-const config = {
-    env: {
-        browser: true,
-        es2021: true,
-    },
-    extends: [
-        'eslint:recommended',
-        'plugin:prettier/recommended' // если используете Prettier
-    ],
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true, // если используете React
-        },
-        ecmaVersion: 12,
+import globals from 'globals'
+import pluginJs from '@eslint/js'
+
+export default [
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        test: 'readonly',
+        expect: 'readonly',
+      },
+      parserOptions: {
+        ecmaVersion: 2021,
         sourceType: 'module',
+      },
     },
     rules: {
-        'no-console': 'warn',
-        // другие правила
+      'no-console': 'warn',
     },
-};
-
-module.exports = config;
+  },
+  pluginJs.configs.recommended,
+]

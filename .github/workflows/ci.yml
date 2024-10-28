@@ -32,5 +32,5 @@ jobs:
       - name: Run ESlint
         run: npm run lint
 
-      - name: Run Pritter
+      - name: Run Prettier
         run: npm run format
