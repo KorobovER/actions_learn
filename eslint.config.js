@@ -12,11 +12,14 @@ export default [
             parserOptions: {
                 ecmaVersion: 2021,
                 sourceType: 'module',
+                ecmaFeatures: {
+                    jsx: true,
+                },
             },
         },
         rules: {
-            'no-console': 'warn',
+            'no-console': 'warn', 
         },
     },
-    pluginJs.configs.recommended,
+    pluginJs.configs.recommended, 
 ];

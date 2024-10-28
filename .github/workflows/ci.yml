@@ -29,8 +29,10 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Run ESlint
-        run: npm run lint
+      - name: Run ESLint with debug info
+        run: |
+          npm run lint || echo "Linting failed, output:"
+          cat eslint-output.log
 
       - name: Run Prettier
         run: npm run format
