@@ -18,4 +18,4 @@ document.getElementById('decrease').onclick = () => {
   document.querySelector('h1').innerHTML = getCountDisplay(count)
 }
 
-alert('Привет')
+alert('Привет Мир')
