@@ -1,7 +1,0 @@
-global:
-  scrape_interval: 15s  # Интервал опроса метрик
-
-scrape_configs:
-  - job_name: 'github-actions'
-    static_configs:
-      - targets: ['localhost:9090']  # Используем локальный адрес (после настройки)
