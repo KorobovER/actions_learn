@@ -29,15 +29,14 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Run ESLint
+      - name: Run ESlint
         run: npm run lint
 
       - name: Run Prettier
         run: npm run format
 
       - name: Install Artillery
-        run: |
-          npm install -g artillery
+        run: npm install -g artillery
 
       - name: Build application
         run: npm run build
@@ -45,21 +44,17 @@ jobs:
       - name: Run Vite in preview mode
         run: |
           npm run preview > app.log 2>&1 & 
-          sleep 30  # Увеличьте время ожидания
+          sleep 20  # Увеличиваем время ожидания
 
       - name: Check application health
         run: |
           URL="http://localhost:4173" 
-          for i in {1..20}; do
-            echo "Checking $URL"
+          for i in {1..10}; do
             curl -s $URL && break || sleep 5;
           done
 
-      - name: Check if server is running on port
-        run: |
-          while ! nc -z localhost 4173; do   
-            sleep 1 # wait for 1 second before checking again
-          done
+      - name: Show application logs
+        run: cat app.log # Просмотр логов приложения
 
       - name: Run performance test
         run: |
