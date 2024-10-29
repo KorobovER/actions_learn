@@ -43,6 +43,13 @@ jobs:
         run: |
           npm start & sleep 10 
 
+      - name: Check application health
+        run: |
+          URL="http://localhost:5173" 
+          for i in {1..10}; do
+            curl -s $URL && break || sleep 5;
+          done
+
       - name: Run performance test
         run: |
           artillery run load-test.yml
