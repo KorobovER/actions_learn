@@ -39,10 +39,10 @@ jobs:
         run: |
           npm install -g artillery
 
-      - name: Start local server
-        run: |
-          npm run dev
-
       - name: Run performance test
         run: |
           artillery run load-test.yml
+
+      - name: Generate report
+        run: |
+          artillery report --output report.html
