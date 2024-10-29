@@ -47,6 +47,3 @@ jobs:
         run: |
           artillery run load-test.yml
 
-      - name: Generate report
-        run: |
-          artillery report --output report.html --results path/to/your/results.json
