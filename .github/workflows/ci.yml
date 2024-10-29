@@ -43,6 +43,6 @@ jobs:
         run: |
           artillery run load-test.yml
 
-      - name: Generate report
+      - name: Start local server
         run: |
-          artillery report --output report.html
+          npm run dev
