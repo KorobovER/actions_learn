@@ -39,9 +39,13 @@ jobs:
         run: |
           npm install -g artillery
 
-      - name: Run application
+      - name: Build application
+        run: npm run build
+
+      - name: Run Vite in preview mode
         run: |
-          npm start & sleep 10 
+          npm run preview > app.log 2>&1 & 
+          sleep 15 
 
       - name: Check application health
         run: |
