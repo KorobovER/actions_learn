@@ -38,23 +38,10 @@ jobs:
       - name: Install Artillery
         run: npm install -g artillery
 
-      - name: Build application
-        run: npm run build
-
       - name: Run Vite in preview mode
         run: |
           npm run preview > app.log 2>&1 & 
           sleep 20  # Увеличиваем время ожидания
-
-      - name: Check application health
-        run: |
-          URL="http://localhost:4173" 
-          for i in {1..10}; do
-            curl -s $URL && break || sleep 5;
-          done
-
-      - name: Show application logs
-        run: cat app.log # Просмотр логов приложения
 
       - name: Run performance test
         run: |
