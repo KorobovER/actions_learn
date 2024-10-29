@@ -41,7 +41,7 @@ jobs:
       - name: Run Vite in preview mode
         run: |
           npm run preview > app.log 2>&1 & 
-          sleep 20  # Увеличиваем время ожидания
+          sleep 20
 
       - name: Run performance test
         run: |
