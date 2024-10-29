@@ -34,3 +34,15 @@ jobs:
 
       - name: Run Prettier
         run: npm run format
+
+      - name: Install Artillery
+        run: |
+          npm install -g artillery
+
+      - name: Run performance test
+        run: |
+          artillery run load-test.yml
+
+      - name: Generate report
+        run: |
+          artillery report --output report.html
