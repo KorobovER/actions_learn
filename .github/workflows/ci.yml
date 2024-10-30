@@ -47,3 +47,11 @@ jobs:
         run: |
           artillery run load-test.yml
           artillery run load-test.yml --record --key a9_6ReDi7eOAjW4mzzKdGnhXOO1KGHZCSaU
+      - name: Send logs to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: |
+            MESSAGE="Build and tests completed successfully."
+            curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+            -d "chat_id=$CHAT_ID&text=$MESSAGE"

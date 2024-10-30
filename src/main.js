@@ -17,5 +17,3 @@ document.getElementById('decrease').onclick = () => {
   count = decrement(count)
   document.querySelector('h1').innerHTML = getCountDisplay(count)
 }
-
-alert('Привет Мир')
