@@ -1,0 +1,5 @@
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))u(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&u(c)}).observe(document,{childList:!0,subtree:!0});function s(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function u(e){if(e.ep)return;e.ep=!0;const t=s(e);fetch(e.href,t)}})();function l(n){return n+1}function d(n){return n-1}function i(n){return`Счётчик: ${n}`}let r=0;document.body.innerHTML=`
+    <h1>${i(r)}</h1>
+    <button id="increase">Увеличить</button>
+    <button id="decrease">Уменьшить</button>
+`;document.getElementById("increase").onclick=()=>{r=l(r),document.querySelector("h1").innerHTML=i(r)};document.getElementById("decrease").onclick=()=>{r=d(r),document.querySelector("h1").innerHTML=i(r)};alert("Hello rth");
